@@ -1,0 +1,9 @@
+Cuenta administrador:
+
+admin
+1234
+
+Cuenta usuario:
+
+gabriela
+1234

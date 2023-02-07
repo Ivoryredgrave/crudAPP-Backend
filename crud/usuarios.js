@@ -1,7 +1,8 @@
+// Librerias
 const express = require("express");
 const routes = express.Router();
 
-// select de usuarios para iniciar sesión en el sistema
+// Select de usuarios para iniciar sesión en el sistema
 routes.get("/login", (req, res) => {
   const { usuario, contrasena } = req.query;
   req.getConnection((err, conn) => {
@@ -25,7 +26,7 @@ FROM usuarios WHERE UPPER(nombreusuario) = UPPER(?)
   });
 });
 
-// mostrar todos los usuarios
+// Mostrar todos los usuarios
 routes.get("/todos_los_usuarios", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
@@ -44,7 +45,7 @@ routes.get("/todos_los_usuarios", (req, res) => {
   });
 });
 
-// insertar usuario
+// Insertar usuario
 routes.post("/", (req, res) => {
   req.getConnection((err, conn) => {
     const { newUser } = req.body
@@ -60,7 +61,7 @@ routes.post("/", (req, res) => {
   });
 });
 
-// actualizar usuario
+// Actualizar usuario
 routes.put("/:id", (req, res) => {
   req.getConnection((err, conn) => {
     const { user } = req.body
@@ -80,7 +81,7 @@ routes.put("/:id", (req, res) => {
   });
 });
 
-// count de todos los usuarios
+// Count de todos los usuarios
 routes.get("/total_de_usuarios", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
@@ -91,7 +92,7 @@ routes.get("/total_de_usuarios", (req, res) => {
   });
 });
 
-// count de usuarios por estado
+// Count de usuarios por estado
 routes.get("/usuarios_por_estado", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
@@ -103,7 +104,7 @@ group by estado`, (err, rows) => {
   });
 });
 
-// count de usuarios por género
+// Count de usuarios por género
 routes.get("/usuarios_por_genero", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
